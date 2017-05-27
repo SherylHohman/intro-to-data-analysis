@@ -111,7 +111,7 @@ project_submissions[0]
 # 
 # ## Investigating the Data
 
-# In[ ]:
+# In[7]:
 
 #####################################
 #                 2                 #
@@ -119,6 +119,32 @@ project_submissions[0]
 
 ## Find the total number of rows and the number of unique students (account keys)
 ## in each table.
+def count_unique_id(data, key):
+    unique_ids = []
+    for i in range(len(data)):
+        row = data[i]
+        id = row[key]
+        if id not in unique_ids:
+            unique_ids.append(id)
+    return len(unique_ids)
+
+enrollment_num_rows = len(enrollments)
+enrollment_num_unique_students = count_unique_id(enrollments, 'account_key')
+print enrollment_num_rows, "enrollment_num_rows"
+print enrollment_num_unique_students, "enrollment_num_unique_students"
+print
+
+
+engagement_num_rows = len(daily_engagement)
+engagement_num_unique_students = count_unique_id(daily_engagement, 'acct')
+print engagement_num_rows, "engagement_num_rows"
+print engagement_num_unique_students, "engagement_num_unique_students"
+print
+
+submission_num_rows = len(project_submissions)
+submission_num_unique_students = count_unique_id(project_submissions, 'account_key')
+print submission_num_rows, "submission_num_rows"
+print submission_num_unique_students, "submission_num_unique_students"
 
 
 # ## Problems in the Data

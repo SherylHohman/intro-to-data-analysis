@@ -11999,7 +11999,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -12008,9 +12008,56 @@ div#notebook {
 
 <span class="c1">## Find the total number of rows and the number of unique students (account keys)</span>
 <span class="c1">## in each table.</span>
+<span class="k">def</span> <span class="nf">count_unique_id</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="n">unique_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_ids</span><span class="p">:</span>
+            <span class="n">unique_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ids</span><span class="p">)</span>
+
+<span class="n">enrollment_num_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span>
+<span class="n">enrollment_num_unique_students</span> <span class="o">=</span> <span class="n">count_unique_id</span><span class="p">(</span><span class="n">enrollments</span><span class="p">,</span> <span class="s1">&#39;account_key&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">enrollment_num_rows</span><span class="p">,</span> <span class="s2">&quot;enrollment_num_rows&quot;</span>
+<span class="k">print</span> <span class="n">enrollment_num_unique_students</span><span class="p">,</span> <span class="s2">&quot;enrollment_num_unique_students&quot;</span>
+<span class="k">print</span>
+
+
+<span class="n">engagement_num_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">daily_engagement</span><span class="p">)</span>
+<span class="n">engagement_num_unique_students</span> <span class="o">=</span> <span class="n">count_unique_id</span><span class="p">(</span><span class="n">daily_engagement</span><span class="p">,</span> <span class="s1">&#39;acct&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">engagement_num_rows</span><span class="p">,</span> <span class="s2">&quot;engagement_num_rows&quot;</span>
+<span class="k">print</span> <span class="n">engagement_num_unique_students</span><span class="p">,</span> <span class="s2">&quot;engagement_num_unique_students&quot;</span>
+<span class="k">print</span>
+
+<span class="n">submission_num_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">project_submissions</span><span class="p">)</span>
+<span class="n">submission_num_unique_students</span> <span class="o">=</span> <span class="n">count_unique_id</span><span class="p">(</span><span class="n">project_submissions</span><span class="p">,</span> <span class="s1">&#39;account_key&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">submission_num_rows</span><span class="p">,</span> <span class="s2">&quot;submission_num_rows&quot;</span>
+<span class="k">print</span> <span class="n">submission_num_unique_students</span><span class="p">,</span> <span class="s2">&quot;submission_num_unique_students&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1640 enrollment_num_rows
+1302 enrollment_num_unique_students
+
+136240 engagement_num_rows
+1237 engagement_num_unique_students
+
+3642 submission_num_rows
+743 submission_num_unique_students
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
