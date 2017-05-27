@@ -53,7 +53,7 @@ print project_submissions[0]
 
 # ## Fixing Data Types
 
-# In[ ]:
+# In[4]:
 
 from datetime import datetime as dt
 
@@ -84,7 +84,7 @@ for enrollment in enrollments:
 enrollments[0]
 
 
-# In[ ]:
+# In[5]:
 
 # Clean up the data types in the engagement table
 for engagement_record in daily_engagement:
@@ -97,7 +97,7 @@ for engagement_record in daily_engagement:
 daily_engagement[0]
 
 
-# In[ ]:
+# In[6]:
 
 # Clean up the data types in the submissions table
 for submission in project_submissions:
