@@ -10,7 +10,7 @@
 # 
 # ## Load Data from CSVs
 
-# In[ ]:
+# In[2]:
 
 import unicodecsv
 
@@ -28,7 +28,7 @@ with open('enrollments.csv', 'rb') as f:
     enrollments = list(reader)
 
 
-# In[ ]:
+# In[3]:
 
 #####################################
 #                 1                 #
@@ -43,6 +43,12 @@ with open('daily_engagement.csv', 'rb') as f:
 with open('project_submissions.csv', 'rb') as f:
     reader = unicodecsv.DictReader(f)
     project_submissions = list(reader)
+
+print enrollments[0]
+print
+print daily_engagement[0]
+print
+print project_submissions[0]
 
 
 # ## Fixing Data Types

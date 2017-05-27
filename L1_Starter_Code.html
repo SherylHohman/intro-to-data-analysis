@@ -11763,7 +11763,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">unicodecsv</span>
@@ -11789,7 +11789,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -11805,9 +11805,33 @@ div#notebook {
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;project_submissions.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">unicodecsv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">project_submissions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="n">daily_engagement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="n">project_submissions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{u&#39;status&#39;: u&#39;canceled&#39;, u&#39;is_udacity&#39;: u&#39;True&#39;, u&#39;is_canceled&#39;: u&#39;True&#39;, u&#39;join_date&#39;: u&#39;2014-11-10&#39;, u&#39;account_key&#39;: u&#39;448&#39;, u&#39;cancel_date&#39;: u&#39;2015-01-14&#39;, u&#39;days_to_cancel&#39;: u&#39;65&#39;}
+
+{u&#39;lessons_completed&#39;: u&#39;0.0&#39;, u&#39;num_courses_visited&#39;: u&#39;1.0&#39;, u&#39;total_minutes_visited&#39;: u&#39;11.6793745&#39;, u&#39;projects_completed&#39;: u&#39;0.0&#39;, u&#39;acct&#39;: u&#39;0&#39;, u&#39;utc_date&#39;: u&#39;2015-01-09&#39;}
+
+{u&#39;lesson_key&#39;: u&#39;3176718735&#39;, u&#39;processing_state&#39;: u&#39;EVALUATED&#39;, u&#39;account_key&#39;: u&#39;256&#39;, u&#39;assigned_rating&#39;: u&#39;UNGRADED&#39;, u&#39;completion_date&#39;: u&#39;2015-01-16&#39;, u&#39;creation_date&#39;: u&#39;2015-01-14&#39;}
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
