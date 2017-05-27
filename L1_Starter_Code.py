@@ -164,7 +164,7 @@ print daily_engagement[0]
 
 # ## Missing Engagement Records
 
-# In[ ]:
+# In[20]:
 
 #####################################
 #                 4                 #
@@ -172,11 +172,22 @@ print daily_engagement[0]
 
 ## Find any one student enrollments where the student is missing from the daily engagement table.
 ## Output that enrollment.
+engaged_students = set()
+for engagement in daily_engagement:
+    engaged_students.add(engagement['account_key'])
+    
+for enrollment in enrollments:
+    student = enrollment['account_key']
+    if student not in engaged_students:
+        print student
+        break
+print enrollment
+print        
 
 
 # ## Checking for More Problem Records
 
-# In[ ]:
+# In[23]:
 
 #####################################
 #                 5                 #
@@ -184,6 +195,21 @@ print daily_engagement[0]
 
 ## Find the number of surprising data points (enrollments missing from
 ## the engagement table) that remain, if any.
+num_unengaged_students = 0
+num_unengaged_students_enrolled_at_least_1_day = 0
+unengaged_students_enrolled_at_least_1_day = []
+for enrollment in enrollments:
+    student = enrollment['account_key']
+    if student not in engaged_students:
+        num_unengaged_students += 1
+        if enrollment['join_date'] != enrollment['cancel_date']:
+            unengaged_students_enrolled_at_least_1_day.append(enrollment) 
+            num_unengaged_students_enrolled_at_least_1_day += 1
+            print student
+            print enrollment
+print
+print num_unengaged_students, "students cancelled same day"
+print num_unengaged_students_enrolled_at_least_1_day, "enrolled at least one day"
 
 
 # ## Tracking Down the Remaining Problems
@@ -213,7 +239,7 @@ def remove_udacity_accounts(data):
 
 # Remove Udacity test accounts from all three tables
 non_udacity_enrollments = remove_udacity_accounts(enrollments)
-non_udacity_engagement = remove_udacity_accounts(daily_engagement)
+non_udacity_engagement  = remove_udacity_accounts(daily_engagement)
 non_udacity_submissions = remove_udacity_accounts(project_submissions)
 
 print len(non_udacity_enrollments)

@@ -12117,7 +12117,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -12126,9 +12126,36 @@ div#notebook {
 
 <span class="c1">## Find any one student enrollments where the student is missing from the daily engagement table.</span>
 <span class="c1">## Output that enrollment.</span>
+<span class="n">engaged_students</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">engagement</span> <span class="ow">in</span> <span class="n">daily_engagement</span><span class="p">:</span>
+    <span class="n">engaged_students</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">engagement</span><span class="p">[</span><span class="s1">&#39;account_key&#39;</span><span class="p">])</span>
+    
+<span class="k">for</span> <span class="n">enrollment</span> <span class="ow">in</span> <span class="n">enrollments</span><span class="p">:</span>
+    <span class="n">student</span> <span class="o">=</span> <span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;account_key&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">student</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">engaged_students</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">student</span>
+        <span class="k">break</span>
+<span class="k">print</span> <span class="n">enrollment</span>
+<span class="k">print</span>        
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1219
+{u&#39;status&#39;: u&#39;canceled&#39;, u&#39;is_udacity&#39;: False, u&#39;is_canceled&#39;: True, u&#39;join_date&#39;: datetime.datetime(2014, 11, 12, 0, 0), u&#39;account_key&#39;: u&#39;1219&#39;, u&#39;cancel_date&#39;: datetime.datetime(2014, 11, 12, 0, 0), u&#39;days_to_cancel&#39;: 0}
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12144,7 +12171,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -12153,9 +12180,46 @@ div#notebook {
 
 <span class="c1">## Find the number of surprising data points (enrollments missing from</span>
 <span class="c1">## the engagement table) that remain, if any.</span>
+<span class="n">num_unengaged_students</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">num_unengaged_students_enrolled_at_least_1_day</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">unengaged_students_enrolled_at_least_1_day</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">enrollment</span> <span class="ow">in</span> <span class="n">enrollments</span><span class="p">:</span>
+    <span class="n">student</span> <span class="o">=</span> <span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;account_key&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">student</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">engaged_students</span><span class="p">:</span>
+        <span class="n">num_unengaged_students</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;join_date&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;cancel_date&#39;</span><span class="p">]:</span>
+            <span class="n">unengaged_students_enrolled_at_least_1_day</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">enrollment</span><span class="p">)</span> 
+            <span class="n">num_unengaged_students_enrolled_at_least_1_day</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">print</span> <span class="n">student</span>
+            <span class="k">print</span> <span class="n">enrollment</span>
+<span class="k">print</span>
+<span class="k">print</span> <span class="n">num_unengaged_students</span><span class="p">,</span> <span class="s2">&quot;students cancelled same day&quot;</span>
+<span class="k">print</span> <span class="n">num_unengaged_students_enrolled_at_least_1_day</span><span class="p">,</span> <span class="s2">&quot;enrolled at least one day&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1304
+{u&#39;status&#39;: u&#39;canceled&#39;, u&#39;is_udacity&#39;: True, u&#39;is_canceled&#39;: True, u&#39;join_date&#39;: datetime.datetime(2015, 1, 10, 0, 0), u&#39;account_key&#39;: u&#39;1304&#39;, u&#39;cancel_date&#39;: datetime.datetime(2015, 3, 10, 0, 0), u&#39;days_to_cancel&#39;: 59}
+1304
+{u&#39;status&#39;: u&#39;canceled&#39;, u&#39;is_udacity&#39;: True, u&#39;is_canceled&#39;: True, u&#39;join_date&#39;: datetime.datetime(2015, 3, 10, 0, 0), u&#39;account_key&#39;: u&#39;1304&#39;, u&#39;cancel_date&#39;: datetime.datetime(2015, 6, 17, 0, 0), u&#39;days_to_cancel&#39;: 99}
+1101
+{u&#39;status&#39;: u&#39;current&#39;, u&#39;is_udacity&#39;: True, u&#39;is_canceled&#39;: False, u&#39;join_date&#39;: datetime.datetime(2015, 2, 25, 0, 0), u&#39;account_key&#39;: u&#39;1101&#39;, u&#39;cancel_date&#39;: None, u&#39;days_to_cancel&#39;: None}
+
+71 students cancelled same day
+3 enrolled at least one day
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12213,7 +12277,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Remove Udacity test accounts from all three tables</span>
 <span class="n">non_udacity_enrollments</span> <span class="o">=</span> <span class="n">remove_udacity_accounts</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span>
-<span class="n">non_udacity_engagement</span> <span class="o">=</span> <span class="n">remove_udacity_accounts</span><span class="p">(</span><span class="n">daily_engagement</span><span class="p">)</span>
+<span class="n">non_udacity_engagement</span>  <span class="o">=</span> <span class="n">remove_udacity_accounts</span><span class="p">(</span><span class="n">daily_engagement</span><span class="p">)</span>
 <span class="n">non_udacity_submissions</span> <span class="o">=</span> <span class="n">remove_udacity_accounts</span><span class="p">(</span><span class="n">project_submissions</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_udacity_enrollments</span><span class="p">)</span>
