@@ -149,13 +149,19 @@ print submission_num_unique_students, "submission_num_unique_students"
 
 # ## Problems in the Data
 
-# In[ ]:
+# In[13]:
 
 #####################################
 #                 3                 #
 #####################################
 
 ## Rename the "acct" column in the daily_engagement table to "account_key".
+for row in daily_engagement:
+    if 'acct' in row:
+      val = row['acct']
+      row['account_key'] = val
+      del row['acct']
+print daily_engagement[0]
 
 
 # ## Missing Engagement Records
