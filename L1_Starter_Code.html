@@ -11999,7 +11999,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -12009,12 +12009,10 @@ div#notebook {
 <span class="c1">## Find the total number of rows and the number of unique students (account keys)</span>
 <span class="c1">## in each table.</span>
 <span class="k">def</span> <span class="nf">count_unique_id</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="n">unique_ids</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
-        <span class="n">row</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="nb">id</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="k">if</span> <span class="nb">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_ids</span><span class="p">:</span>
-            <span class="n">unique_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="c1"># sets only add an item if its not already in there (unordered)</span>
+    <span class="n">unique_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">unique_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ids</span><span class="p">)</span>
 
 <span class="n">enrollment_num_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">enrollments</span><span class="p">)</span>

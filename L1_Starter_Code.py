@@ -111,7 +111,7 @@ project_submissions[0]
 # 
 # ## Investigating the Data
 
-# In[7]:
+# In[16]:
 
 #####################################
 #                 2                 #
@@ -120,12 +120,10 @@ project_submissions[0]
 ## Find the total number of rows and the number of unique students (account keys)
 ## in each table.
 def count_unique_id(data, key):
-    unique_ids = []
-    for i in range(len(data)):
-        row = data[i]
-        id = row[key]
-        if id not in unique_ids:
-            unique_ids.append(id)
+    # sets only add an item if its not already in there (unordered)
+    unique_ids = set()
+    for row in data:
+        unique_ids.add(row[key])
     return len(unique_ids)
 
 enrollment_num_rows = len(enrollments)
