@@ -44,11 +44,11 @@ with open('project_submissions.csv', 'rb') as f:
     reader = unicodecsv.DictReader(f)
     project_submissions = list(reader)
 
-print enrollments[0]
+print "enrollments\n", enrollments[0]
 print
-print daily_engagement[0]
+print "daily_engagement\n", daily_engagement[0]
 print
-print project_submissions[0]
+print "project_submissions\n", project_submissions[0]
 
 
 # ## Fixing Data Types
@@ -214,7 +214,7 @@ print num_unengaged_students_enrolled_at_least_1_day, "enrolled at least one day
 
 # ## Tracking Down the Remaining Problems
 
-# In[ ]:
+# In[39]:
 
 # Create a set of the account keys for all Udacity test accounts
 udacity_test_accounts = set()
@@ -224,7 +224,7 @@ for enrollment in enrollments:
 len(udacity_test_accounts)
 
 
-# In[ ]:
+# In[40]:
 
 # Given some data with an account_key field, removes any records corresponding to Udacity test accounts
 def remove_udacity_accounts(data):
@@ -235,7 +235,7 @@ def remove_udacity_accounts(data):
     return non_udacity_data
 
 
-# In[ ]:
+# In[41]:
 
 # Remove Udacity test accounts from all three tables
 non_udacity_enrollments = remove_udacity_accounts(enrollments)
@@ -249,7 +249,7 @@ print len(non_udacity_submissions)
 
 # ## Refining the Question
 
-# In[ ]:
+# In[44]:
 
 #####################################
 #                 6                 #
@@ -259,12 +259,20 @@ print len(non_udacity_submissions)
 ## haven't canceled yet or who remained enrolled for more than 7 days. The keys
 ## should be account keys, and the values should be the date the student enrolled.
 
-paid_students =
+paid_students = {}
+for enrollment in non_udacity_enrollments:    
+    student = enrollment['account_key']
+    if (enrollment['is_canceled'] == False) or ((enrollment['cancel_date'] - enrollment['join_date']).days > 7) : 
+        date_enrolled = enrollment['join_date']
+        # if student enrolled more than once, save only the most recent enrollment date
+        if (student not in paid_students) or (date_enrolled > paid_students[student]):
+            paid_students[student] = date_enrolled
+print len(paid_students)
 
 
 # ## Getting Data from First Week
 
-# In[ ]:
+# In[34]:
 
 # Takes a student's join date and the date of a specific engagement record,
 # and returns True if that engagement record happened within one week
@@ -274,17 +282,29 @@ def within_one_week(join_date, engagement_date):
     return time_delta.days < 7
 
 
-# In[ ]:
+# In[56]:
 
 #####################################
 #                 7                 #
 #####################################
 
-## Create a list of rows from the engagement table including only rows where
-## the student is one of the paid students you just found, and the date is within
-## one week of the student's join date.
+## Create a list of rows from the engagement table such that:
+## the student is one of the paid students you just found, and 
+## the date is within one week of the student's join date.
 
-paid_engagement_in_first_week = 
+paid_engagement_in_first_week = []
+paid_students_who_engaged_in_first_week = set()
+
+for engagement in non_udacity_engagement:
+    student = engagement['account_key']
+    if student in paid_students:
+        if within_one_week(paid_students[student], engagement['utc_date']):
+            paid_engagement_in_first_week.append(engagement)
+            paid_students_who_engaged_in_first_week.add(student)
+            
+print len(paid_engagement_in_first_week), "engagements in first week"
+print len(paid_students_who_engaged_in_first_week),  "  paid students"
+print len(paid_engagement_in_first_week)*1.0 / len(paid_students_who_engaged_in_first_week)*1.0, "ave number engagements per student, during their first week"
 
 
 # ## Exploring Student Engagement

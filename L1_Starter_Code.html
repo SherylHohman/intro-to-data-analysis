@@ -11806,11 +11806,11 @@ div#notebook {
     <span class="n">reader</span> <span class="o">=</span> <span class="n">unicodecsv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">project_submissions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s2">&quot;enrollments</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">enrollments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">print</span>
-<span class="k">print</span> <span class="n">daily_engagement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s2">&quot;daily_engagement</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">daily_engagement</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">print</span>
-<span class="k">print</span> <span class="n">project_submissions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="s2">&quot;project_submissions</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">project_submissions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12235,7 +12235,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create a set of the account keys for all Udacity test accounts</span>
@@ -12250,10 +12250,26 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Given some data with an account_key field, removes any records corresponding to Udacity test accounts</span>
@@ -12272,7 +12288,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Remove Udacity test accounts from all three tables</span>
@@ -12289,6 +12305,22 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1622
+135656
+3634
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12301,7 +12333,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -12312,10 +12344,32 @@ div#notebook {
 <span class="c1">## haven&#39;t canceled yet or who remained enrolled for more than 7 days. The keys</span>
 <span class="c1">## should be account keys, and the values should be the date the student enrolled.</span>
 
-<span class="n">paid_students</span> <span class="o">=</span>
+<span class="n">paid_students</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">enrollment</span> <span class="ow">in</span> <span class="n">non_udacity_enrollments</span><span class="p">:</span>    
+    <span class="n">student</span> <span class="o">=</span> <span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;account_key&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="bp">False</span><span class="p">)</span> <span class="ow">or</span> <span class="p">((</span><span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;cancel_date&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;join_date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">)</span> <span class="p">:</span> 
+        <span class="n">date_enrolled</span> <span class="o">=</span> <span class="n">enrollment</span><span class="p">[</span><span class="s1">&#39;join_date&#39;</span><span class="p">]</span>
+        <span class="c1"># if student enrolled more than once, save only the most recent enrollment date</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">student</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">paid_students</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">date_enrolled</span> <span class="o">&gt;</span> <span class="n">paid_students</span><span class="p">[</span><span class="n">student</span><span class="p">]):</span>
+            <span class="n">paid_students</span><span class="p">[</span><span class="n">student</span><span class="p">]</span> <span class="o">=</span> <span class="n">date_enrolled</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">paid_students</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>995
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12331,7 +12385,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Takes a student&#39;s join date and the date of a specific engagement record,</span>
@@ -12349,21 +12403,49 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
 <span class="c1">#                 7                 #</span>
 <span class="c1">#####################################</span>
 
-<span class="c1">## Create a list of rows from the engagement table including only rows where</span>
-<span class="c1">## the student is one of the paid students you just found, and the date is within</span>
-<span class="c1">## one week of the student&#39;s join date.</span>
+<span class="c1">## Create a list of rows from the engagement table such that:</span>
+<span class="c1">## the student is one of the paid students you just found, and </span>
+<span class="c1">## the date is within one week of the student&#39;s join date.</span>
 
-<span class="n">paid_engagement_in_first_week</span> <span class="o">=</span> 
+<span class="n">paid_engagement_in_first_week</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">paid_students_who_engaged_in_first_week</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">engagement</span> <span class="ow">in</span> <span class="n">non_udacity_engagement</span><span class="p">:</span>
+    <span class="n">student</span> <span class="o">=</span> <span class="n">engagement</span><span class="p">[</span><span class="s1">&#39;account_key&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">paid_students</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">within_one_week</span><span class="p">(</span><span class="n">paid_students</span><span class="p">[</span><span class="n">student</span><span class="p">],</span> <span class="n">engagement</span><span class="p">[</span><span class="s1">&#39;utc_date&#39;</span><span class="p">]):</span>
+            <span class="n">paid_engagement_in_first_week</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">engagement</span><span class="p">)</span>
+            <span class="n">paid_students_who_engaged_in_first_week</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+            
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">paid_engagement_in_first_week</span><span class="p">),</span> <span class="s2">&quot;engagements in first week&quot;</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">paid_students_who_engaged_in_first_week</span><span class="p">),</span>  <span class="s2">&quot;  paid students&quot;</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">paid_engagement_in_first_week</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">paid_students_who_engaged_in_first_week</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;ave number engagements per student, during their first week&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>21508 engagements in first week
+995   paid students
+21.616080402 ave number engagements per student, during their first week
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
