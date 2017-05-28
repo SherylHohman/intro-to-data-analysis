@@ -576,7 +576,7 @@ print_stats("Number of Days Visted in the First Week by Students who Failed Proj
 
 # ## Improving Plots and Sharing Findings
 
-# In[30]:
+# In[60]:
 
 ######################################
 #                 14                 #
@@ -587,32 +587,31 @@ print_stats("Number of Days Visted in the First Week by Students who Failed Proj
 ## look better, adding axis labels and a title, and changing one or more
 ## arguments to the hist() function.
 
+
+# In[61]:
+
 import seaborn as sns
 
 
-# In[31]:
+# In[62]:
 
 plt.hist(num_days_visited_passing, bins=8)
 plt.title("Number of Days Visted in the First Week by Students who Passed Project 1")
 plt.xlabel("Number of Days Visited, Week 1")
 plt.ylabel("Number of Students")
+plt.legend(['Passing', 'Failing'])
 
 
-# In[32]:
+# In[69]:
 
 plt.hist(num_days_visited_non_passing, bins=8)
 plt.title("Number of Days Visted in the First Week by Students who Failed Project 1")
 plt.xlabel("Number of Days Visited, Week 1")
 plt.ylabel("Number of Students")
+plt.legend(['Failing'])
 
 
-
-# In[33]:
-
-import seaborn as sns
-
-
-# In[34]:
+# In[64]:
 
 #"Total Minutes Visited in First Week by Students who Passed Project 1"
 base_number_of_bins = 60 #53.7867078825
@@ -640,16 +639,17 @@ plt.hist(total_minutes_visited_non_passing, num_bins_failing)
 plt.title("Total Minutes Visted in the First Week by Students who Passed/Failed Project 1")
 plt.xlabel("Number of Minutes Visited, Week 1")
 plt.ylabel("Number of Students")
+plt.legend(['Passing', 'Failing'])
 
 
 
-# In[44]:
+# In[128]:
 
-#"Total Minutes Visited in First Week by Students who Passed Project 1"
-base_number_of_bins = 60 # hourly bins
+# #"Total Minutes Visited in First Week by Students who Passed Project 1"
+# base_number_of_bins = 60 # hourly bins
 
 min_number_minutes = 0
-max_number_minutes = 1800
+max_number_minutes = 1200 #20 hours  #1800 #30 hours
 # step = 120 #number of minutes represented by each tick (and thusly each label)
 # plt.xticks(range(int(np.min(total_minutes_visited)), int(np.max(total_minutes_visited))+1, step))
 
@@ -661,42 +661,68 @@ max_number_minutes = 1800
 total_hours_visited_passing     = [mins/60.0 for mins in total_minutes_visited_passing]
 total_hours_visited_non_passing = [mins/60.0 for mins in total_minutes_visited_non_passing]
 
-start_num_hours = int(min_number_minutes/60)
-end_num_hours   = int(max_number_minutes/60)+1
+start_num_hours = 0  #int(min_number_minutes/60)
+end_num_hours   = 20 + 1 # int(max_number_minutes/60)+1
 step1 = 1        #number of hours represented by each tick
-step1 = 1        #number of hours represented by each tick (and thusly each label) -- prevent overlapping labels
+step2 = 2        #number of hours represented by each tick (and thusly each label) -- prevent overlapping labels
+
+# set number of bins equal to the total number of bars in chart --> hourly
+base_number_of_bins = end_num_hours - start_num_hours  # 60 # hourly bins
 
 # first 10 hours tick each hour, then label/tick even number of hours only (prevent overlapping labels)
-time_range_to_plot = range(start_num_hours, 10, 1) + range(10, end_num_hours, step)
-
+time_range_to_plot = range(start_num_hours, 10, 1) + range(10, end_num_hours+1, 2)
 plt.xticks(time_range_to_plot)
+    
+# doesn't work   : 
+# try centering the label to each bar in the histogram
+# def bins_labels(bins, **kwargs):
+#     bin_w = (max(bins) - min(bins)) / (len(bins) - 1)
+#     plt.xticks(np.arange(min(bins)+bin_w/2, max(bins), bin_w), bins, **kwargs)
+#     #plt.xlim(bins[0], bins[-1])
+# bins_labels(range(start_num_hours, end_num_hours))
+
+# cut y-axis off at end_num_students, allowing to zoom in (miinimize effect of "0 hours" on scale chosen for plot)
+end_num_students = 50 + 1
+plt.yticks(range(0, end_num_students, 10))
+plt.ylim([0, end_num_students])
 
 plt.hist(total_hours_visited_passing,     base_number_of_bins, range=[start_num_hours, end_num_hours])
 plt.hist(total_hours_visited_non_passing, base_number_of_bins, range=[start_num_hours, end_num_hours])
 plt.title("Total Hours Visted in the First Week by Students who Passed/Failed Project 1")
 plt.xlabel("Number of Hours Visited, Week 1")
 plt.ylabel("Number of Students")
+plt.legend(['Passing', 'Failing'])
 
 
-
-# In[45]:
+# In[108]:
 
 num_bins=41
+lessons_to_plot = [0,41]
+# step size of labels and ticks: print every lesson number in the range I'm plotting
 
-plt.hist(total_lessons_completed_passing, bins=num_bins)
-plt.hist(total_lessons_completed_non_passing, bins=num_bins)
+# ticks/labels: every lesson for first 10 lessons, every other lesson for 10-20 lessons, then every 5 lessons
+plt.xticks(range(0, 10, 1)+range(10, 20, 2)+range(20, 41, 5))
+
+plt.hist(total_lessons_completed_passing, bins=num_bins, range=[0,41])
+plt.hist(total_lessons_completed_non_passing, bins=num_bins, range=[0,41])
 
 plt.title("Total Number of Lessons Completed in the First Week by Students who Passed/Failed Project 1")
 plt.xlabel("Number of Lessons Completed, Week 1")
 plt.ylabel("Number of Students")
+plt.legend(['Passing', 'Failing'])
 
 
-# In[51]:
+# In[79]:
 
 num_bins=41
+# zoom in to completion of 0 to 15 lessons
 lessons_to_plot = [0,15]
+
 # step size of labels and ticks: print every lesson number in the range I'm plotting
-plt.xticks(range(0, 20, 1))
+# plt.xticks(range(0, 20, 1))
+# ticks/labels: every lesson for first 10 lessons, every other lesson for 10-20 lessons, then every 5 lessons
+plt.xticks(range(0, 6, 1)+range(6, 10, 2)+range(10, 41, 5))
+
 
 plt.hist(total_lessons_completed_passing, bins=num_bins, range=lessons_to_plot)
 plt.hist(total_lessons_completed_non_passing, bins=num_bins, range=lessons_to_plot)
@@ -704,19 +730,20 @@ plt.hist(total_lessons_completed_non_passing, bins=num_bins, range=lessons_to_pl
 plt.title("Total Number of Lessons Completed in the First Week by Students who Passed/Failed Project 1")
 plt.xlabel("Number of Lessons Completed, Week 1")
 plt.ylabel("Number of Students")
+plt.legend(['Passing', 'Failing'])
 
 
-# In[ ]:
+# In[110]:
 
 plt.hist(num_days_visited_passing, bins=8)
-plt.title("Number of Days Visted in the First Week by Students who Passed Project 1")
+plt.hist(num_days_visited_non_passing, bins=8)
+
+plt.title("Number of Days Visted in the First Week by Students who Passed vs Failed Project 1")
 plt.xlabel("Number of Days Visited, Week 1")
 plt.ylabel("Number of Students")
 
-plt.hist(num_days_visited_non_passing, bins=8)
-plt.title("Number of Days Visted in the First Week by Students who Failed Project 1")
-plt.xlabel("Number of Days Visited, Week 1")
-plt.ylabel("Number of Students")
+plt.legend(['Passing', 'Failing'])
+
 
 
 
