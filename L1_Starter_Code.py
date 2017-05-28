@@ -490,7 +490,7 @@ print 1.0*total_num_engagements_from_non_passing_students/num_failing_students, 
 
 # ## Comparing the Two Student Groups
 
-# In[141]:
+# In[144]:
 
 ######################################
 #                 12                 #
@@ -501,31 +501,31 @@ print 1.0*total_num_engagements_from_non_passing_students/num_failing_students, 
 ## starting point would be the metrics we looked at earlier (minutes spent
 ## in the classroom, lessons completed, and days visited).
 
-total_minutes_visited = add_values_in_field('total_minutes_visited', passing_engagement)
-print_stats("Total Minutes Visited in First Week by Students who Passed Project 1", total_minutes_visited)
+total_minutes_visited_passing = add_values_in_field('total_minutes_visited', passing_engagement)
+print_stats("Total Minutes Visited in First Week by Students who Passed Project 1", total_minutes_visited_passing)
 print
-total_minutes_visited = add_values_in_field('total_minutes_visited', non_passing_engagement)
-print_stats("Total Minutes Visited in First Week by Students who Failed Project 1", total_minutes_visited)
-print
-print
-total_lessons_completed = add_values_in_field('lessons_completed', passing_engagement)
-print_stats("Total Number of Lessons Completed in First Week by Students who Passed Project 1", total_lessons_completed)
-print
-total_lessons_completed = add_values_in_field('lessons_completed', non_passing_engagement)
-print_stats("Total Number of Lessons Completed in First Week by Students who Failed Project 1", total_lessons_completed)
+total_minutes_visited_non_passing = add_values_in_field('total_minutes_visited', non_passing_engagement)
+print_stats("Total Minutes Visited in First Week by Students who Failed Project 1", total_minutes_visited_non_passing)
 print
 print
-num_days_visited = count_days_visited(passing_engagement)
-print_stats("Number of Days Visted in the First Week by Students who Passed Project 1", num_days_visited)
+total_lessons_completed_passing = add_values_in_field('lessons_completed', passing_engagement)
+print_stats("Total Number of Lessons Completed in First Week by Students who Passed Project 1", total_lessons_completed_passing)
 print
-num_days_visited = count_days_visited(non_passing_engagement)
-print_stats("Number of Days Visted in the First Week by Students who Failed Project 1", num_days_visited)
+total_lessons_completed_non_passing = add_values_in_field('lessons_completed', non_passing_engagement)
+print_stats("Total Number of Lessons Completed in First Week by Students who Failed Project 1", total_lessons_completed_non_passing)
+print
+print
+num_days_visited_passing = count_days_visited(passing_engagement)
+print_stats("Number of Days Visted in the First Week by Students who Passed Project 1", num_days_visited_passing)
+print
+num_days_visited_non_passing = count_days_visited(non_passing_engagement)
+print_stats("Number of Days Visted in the First Week by Students who Failed Project 1", num_days_visited_non_passing)
 print
 
 
 # ## Making Histograms
 
-# In[ ]:
+# In[145]:
 
 ######################################
 #                 13                 #
@@ -534,6 +534,44 @@ print
 ## Make histograms of the three metrics we looked at earlier for both
 ## students who passed the subway project and students who didn't. You
 ## might also want to make histograms of any other metrics you examined.
+
+import matplotlib.pyplot as plt
+get_ipython().magic(u'matplotlib inline')
+
+#"Total Minutes Visited in First Week by Students who Passed Project 1"
+plt.hist(total_minutes_visited_passing)
+print_stats("Total Minutes Visited in First Week by Students who Passed Project 1", total_minutes_visited_passing)
+
+
+# In[146]:
+
+plt.hist(total_minutes_visited_non_passing)
+print_stats("Total Minutes Visited in First Week by Students who Failed Project 1", total_minutes_visited_non_passing)
+
+
+# In[148]:
+
+plt.hist(total_lessons_completed_passing)
+print_stats("Total Number of Lessons Completed in First Week by Students who Passed Project 1", total_lessons_completed_passing)
+
+
+# In[149]:
+
+plt.hist(total_lessons_completed_non_passing)
+print_stats("Total Number of Lessons Completed in First Week by Students who Failed Project 1", total_lessons_completed_non_passing)
+
+
+# In[150]:
+
+plt.hist(num_days_visited_passing)
+print_stats("Number of Days Visted in the First Week by Students who Passed Project 1", num_days_visited_passing)
+
+
+# In[151]:
+
+
+plt.hist(num_days_visited_non_passing)
+print_stats("Number of Days Visted in the First Week by Students who Failed Project 1", num_days_visited_non_passing)
 
 
 # ## Improving Plots and Sharing Findings
