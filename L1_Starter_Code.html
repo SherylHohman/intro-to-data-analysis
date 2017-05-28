@@ -12613,7 +12613,7 @@ After re-running the cells, we see reasonable numbers.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -12624,9 +12624,9 @@ After re-running the cells, we see reasonable numbers.</p>
 <span class="c1">## the number of lessons completed by each student during the first week. Try creating</span>
 <span class="c1">## one or more functions to re-use the code above.</span>
 
-<span class="k">def</span> <span class="nf">add_values_in_field</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">add_values_in_field</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">engagement_by_account</span><span class="p">):</span>
     <span class="n">totals</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">engagements</span> <span class="ow">in</span> <span class="n">engagement_by_account</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">engagements</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">total_this_account</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">engagement</span> <span class="ow">in</span> <span class="n">engagements</span><span class="p">:</span>
             <span class="n">total_this_account</span> <span class="o">+=</span> <span class="n">engagement</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
@@ -12689,7 +12689,7 @@ Maximum: 36
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">######################################</span>
@@ -12699,9 +12699,9 @@ Maximum: 36
 <span class="c1">## Find the mean, standard deviation, minimum, and maximum for the number of</span>
 <span class="c1">## days each student visits the classroom during the first week.</span>
 
-<span class="k">def</span> <span class="nf">count_days_visited</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">count_days_visited</span><span class="p">(</span><span class="n">dataset</span><span class="p">):</span>
     <span class="n">totals</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">engagements</span> <span class="ow">in</span> <span class="n">engagement_by_account</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">engagements</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">engagement</span> <span class="ow">in</span> <span class="n">engagements</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">engagement</span><span class="p">[</span><span class="s1">&#39;num_courses_visited&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -12710,7 +12710,7 @@ Maximum: 36
     <span class="c1">#print totals</span>
     <span class="k">return</span> <span class="n">totals</span>
 
-<span class="n">num_days_visited</span> <span class="o">=</span> <span class="n">count_days_visited</span><span class="p">()</span>
+<span class="n">num_days_visited</span> <span class="o">=</span> <span class="n">count_days_visited</span><span class="p">(</span><span class="n">engagement_by_account</span><span class="p">)</span>
 <span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Number of Days Visted by Students in the First Week (func with for loop)&quot;</span><span class="p">,</span> <span class="n">num_days_visited</span><span class="p">)</span>
 <span class="k">print</span>
 </pre></div>

@@ -376,7 +376,7 @@ for account_key, total_minutes in total_minutes_by_account.items():
 
 # ## Lessons Completed in First Week
 
-# In[99]:
+# In[138]:
 
 #####################################
 #                 9                 #
@@ -386,9 +386,9 @@ for account_key, total_minutes in total_minutes_by_account.items():
 ## the number of lessons completed by each student during the first week. Try creating
 ## one or more functions to re-use the code above.
 
-def add_values_in_field(field):
+def add_values_in_field(field, dataset=engagement_by_account):
     totals = []
-    for account_key, engagements in engagement_by_account.items():
+    for account_key, engagements in dataset.items():
         total_this_account = 0
         for engagement in engagements:
             total_this_account += engagement[field]
@@ -413,7 +413,7 @@ print_stats("Total Number of Lessons Completed in a Student's First Week", total
 
 # ## Number of Visits in First Week
 
-# In[136]:
+# In[137]:
 
 ######################################
 #                 10                 #
@@ -422,9 +422,9 @@ print_stats("Total Number of Lessons Completed in a Student's First Week", total
 ## Find the mean, standard deviation, minimum, and maximum for the number of
 ## days each student visits the classroom during the first week.
 
-def count_days_visited():
+def count_days_visited(dataset):
     totals = []
-    for account_key, engagements in engagement_by_account.items():
+    for account_key, engagements in dataset.items():
         count = 0
         for engagement in engagements:
             if engagement['num_courses_visited'] > 0:
@@ -433,7 +433,7 @@ def count_days_visited():
     #print totals
     return totals
 
-num_days_visited = count_days_visited()
+num_days_visited = count_days_visited(engagement_by_account)
 print_stats("Number of Days Visted by Students in the First Week (func with for loop)", num_days_visited)
 print
 
@@ -500,6 +500,7 @@ print 1.0*total_num_engagements_from_non_passing_students/num_failing_students, 
 ## students who pass the subway project vs. students who don't. A good
 ## starting point would be the metrics we looked at earlier (minutes spent
 ## in the classroom, lessons completed, and days visited).
+
 
 
 # ## Making Histograms
