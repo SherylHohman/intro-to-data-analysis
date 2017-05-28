@@ -490,7 +490,7 @@ print 1.0*total_num_engagements_from_non_passing_students/num_failing_students, 
 
 # ## Comparing the Two Student Groups
 
-# In[ ]:
+# In[141]:
 
 ######################################
 #                 12                 #
@@ -501,6 +501,26 @@ print 1.0*total_num_engagements_from_non_passing_students/num_failing_students, 
 ## starting point would be the metrics we looked at earlier (minutes spent
 ## in the classroom, lessons completed, and days visited).
 
+total_minutes_visited = add_values_in_field('total_minutes_visited', passing_engagement)
+print_stats("Total Minutes Visited in First Week by Students who Passed Project 1", total_minutes_visited)
+print
+total_minutes_visited = add_values_in_field('total_minutes_visited', non_passing_engagement)
+print_stats("Total Minutes Visited in First Week by Students who Failed Project 1", total_minutes_visited)
+print
+print
+total_lessons_completed = add_values_in_field('lessons_completed', passing_engagement)
+print_stats("Total Number of Lessons Completed in First Week by Students who Passed Project 1", total_lessons_completed)
+print
+total_lessons_completed = add_values_in_field('lessons_completed', non_passing_engagement)
+print_stats("Total Number of Lessons Completed in First Week by Students who Failed Project 1", total_lessons_completed)
+print
+print
+num_days_visited = count_days_visited(passing_engagement)
+print_stats("Number of Days Visted in the First Week by Students who Passed Project 1", num_days_visited)
+print
+num_days_visited = count_days_visited(non_passing_engagement)
+print_stats("Number of Days Visted in the First Week by Students who Failed Project 1", num_days_visited)
+print
 
 
 # ## Making Histograms

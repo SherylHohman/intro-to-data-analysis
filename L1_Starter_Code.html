@@ -12834,7 +12834,7 @@ Maximum: 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">######################################</span>
@@ -12845,9 +12845,81 @@ Maximum: 7
 <span class="c1">## students who pass the subway project vs. students who don&#39;t. A good</span>
 <span class="c1">## starting point would be the metrics we looked at earlier (minutes spent</span>
 <span class="c1">## in the classroom, lessons completed, and days visited).</span>
+
+<span class="n">total_minutes_visited</span> <span class="o">=</span> <span class="n">add_values_in_field</span><span class="p">(</span><span class="s1">&#39;total_minutes_visited&#39;</span><span class="p">,</span> <span class="n">passing_engagement</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Total Minutes Visited in First Week by Students who Passed Project 1&quot;</span><span class="p">,</span> <span class="n">total_minutes_visited</span><span class="p">)</span>
+<span class="k">print</span>
+<span class="n">total_minutes_visited</span> <span class="o">=</span> <span class="n">add_values_in_field</span><span class="p">(</span><span class="s1">&#39;total_minutes_visited&#39;</span><span class="p">,</span> <span class="n">non_passing_engagement</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Total Minutes Visited in First Week by Students who Failed Project 1&quot;</span><span class="p">,</span> <span class="n">total_minutes_visited</span><span class="p">)</span>
+<span class="k">print</span>
+<span class="k">print</span>
+<span class="n">total_lessons_completed</span> <span class="o">=</span> <span class="n">add_values_in_field</span><span class="p">(</span><span class="s1">&#39;lessons_completed&#39;</span><span class="p">,</span> <span class="n">passing_engagement</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Total Number of Lessons Completed in First Week by Students who Passed Project 1&quot;</span><span class="p">,</span> <span class="n">total_lessons_completed</span><span class="p">)</span>
+<span class="k">print</span>
+<span class="n">total_lessons_completed</span> <span class="o">=</span> <span class="n">add_values_in_field</span><span class="p">(</span><span class="s1">&#39;lessons_completed&#39;</span><span class="p">,</span> <span class="n">non_passing_engagement</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Total Number of Lessons Completed in First Week by Students who Failed Project 1&quot;</span><span class="p">,</span> <span class="n">total_lessons_completed</span><span class="p">)</span>
+<span class="k">print</span>
+<span class="k">print</span>
+<span class="n">num_days_visited</span> <span class="o">=</span> <span class="n">count_days_visited</span><span class="p">(</span><span class="n">passing_engagement</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Number of Days Visted in the First Week by Students who Passed Project 1&quot;</span><span class="p">,</span> <span class="n">num_days_visited</span><span class="p">)</span>
+<span class="k">print</span>
+<span class="n">num_days_visited</span> <span class="o">=</span> <span class="n">count_days_visited</span><span class="p">(</span><span class="n">non_passing_engagement</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Number of Days Visted in the First Week by Students who Failed Project 1&quot;</span><span class="p">,</span> <span class="n">num_days_visited</span><span class="p">)</span>
+<span class="k">print</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total Minutes Visited in First Week by Students who Passed Project 1
+Mean: 394.586046484
+Standard deviation: 448.499519327
+Minimum: 0.0
+Maximum: 3564.7332645
+
+Total Minutes Visited in First Week by Students who Failed Project 1
+Mean: 143.326474267
+Standard deviation: 269.538619011
+Minimum: 0.0
+Maximum: 1768.52274933
+
+
+Total Number of Lessons Completed in First Week by Students who Passed Project 1
+Mean: 2.05255023184
+Standard deviation: 3.14222705558
+Minimum: 0
+Maximum: 36
+
+Total Number of Lessons Completed in First Week by Students who Failed Project 1
+Mean: 0.862068965517
+Standard deviation: 2.54915994183
+Minimum: 0
+Maximum: 27
+
+
+Number of Days Visted in the First Week by Students who Passed Project 1
+Mean: 3.38485316847
+Standard deviation: 2.25882147092
+Minimum: 0
+Maximum: 7
+
+Number of Days Visted in the First Week by Students who Failed Project 1
+Mean: 1.90517241379
+Standard deviation: 1.90573144136
+Minimum: 0
+Maximum: 7
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
