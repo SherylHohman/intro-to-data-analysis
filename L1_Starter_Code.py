@@ -272,17 +272,17 @@ print len(paid_students)
 
 # ## Getting Data from First Week
 
-# In[34]:
+# In[84]:
 
 # Takes a student's join date and the date of a specific engagement record,
 # and returns True if that engagement record happened within one week
 # of the student joining.
 def within_one_week(join_date, engagement_date):
     time_delta = engagement_date - join_date
-    return time_delta.days < 7
+    return (time_delta.days < 7) and (time_delta.days >= 0)
 
 
-# In[56]:
+# In[85]:
 
 #####################################
 #                 7                 #
@@ -309,7 +309,7 @@ print len(paid_engagement_in_first_week)*1.0 / len(paid_students_who_engaged_in_
 
 # ## Exploring Student Engagement
 
-# In[ ]:
+# In[86]:
 
 from collections import defaultdict
 
@@ -321,7 +321,7 @@ for engagement_record in paid_engagement_in_first_week:
     engagement_by_account[account_key].append(engagement_record)
 
 
-# In[ ]:
+# In[87]:
 
 # Create a dictionary with the total minutes each student spent in the classroom during the first week.
 # The keys are account keys, and the values are numbers (total minutes)
@@ -333,21 +333,21 @@ for account_key, engagement_for_student in engagement_by_account.items():
     total_minutes_by_account[account_key] = total_minutes
 
 
-# In[ ]:
+# In[88]:
 
 import numpy as np
 
 # Summarize the data about minutes spent in the classroom
 total_minutes = total_minutes_by_account.values()
-print 'Mean:', np.mean(total_minutes)
-print 'Standard deviation:', np.std(total_minutes)
-print 'Minimum:', np.min(total_minutes)
-print 'Maximum:', np.max(total_minutes)
+print 'Mean:', np.mean(total_minutes), "minutes == ", np.mean(total_minutes)/60, "hours"
+print 'Standard deviation:', np.std(total_minutes),  "minutes == ", np.std(total_minutes)/60, "hours"
+print 'Minimum:', np.min(total_minutes),  "minutes == ", np.min(total_minutes)/60, "hours"
+print 'Maximum:', np.max(total_minutes),  "minutes == ", np.max(total_minutes)/60, "hours == ", np.max(total_minutes)/(60*24), "days"
 
 
 # ## Debugging Data Analysis Code
 
-# In[ ]:
+# In[83]:
 
 #####################################
 #                 8                 #
@@ -355,6 +355,23 @@ print 'Maximum:', np.max(total_minutes)
 
 ## Go through a similar process as before to see if there is a problem.
 ## Locate at least one surprising piece of data, output it, and take a look at it.
+minutes_in_a_week = 7*24*60.0
+print minutes_in_a_week
+for account_key, total_minutes in total_minutes_by_account.items():
+    #print engagement_by_account[account_key][0]
+    if total_minutes > minutes_in_a_week:
+        print total_minutes/minutes_in_a_week, "weeks"
+        for engagement in engagement_by_account[account_key]:
+            print (engagement['utc_date'] - paid_students[account_key]).days, "days\n"                    "engaged;", engagement['utc_date'], "joined:", paid_students[account_key]
+            print engagement
+            print
+
+
+# In[ ]:
+
+We need to discard engagements that preceed the most recent enrollment date (if the student enrolled more than once)
+Modify "within_one_week" function to only include entries that have a engagement date after the join date.
+ie: greater than 0; less than 7 days.
 
 
 # ## Lessons Completed in First Week
