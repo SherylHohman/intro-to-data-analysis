@@ -10,7 +10,7 @@
 # 
 # ## Load Data from CSVs
 
-# In[2]:
+# In[1]:
 
 import unicodecsv
 
@@ -28,7 +28,7 @@ with open('enrollments.csv', 'rb') as f:
     enrollments = list(reader)
 
 
-# In[3]:
+# In[2]:
 
 #####################################
 #                 1                 #
@@ -53,7 +53,7 @@ print "project_submissions\n", project_submissions[0]
 
 # ## Fixing Data Types
 
-# In[4]:
+# In[3]:
 
 from datetime import datetime as dt
 
@@ -84,7 +84,7 @@ for enrollment in enrollments:
 enrollments[0]
 
 
-# In[5]:
+# In[4]:
 
 # Clean up the data types in the engagement table
 for engagement_record in daily_engagement:
@@ -97,7 +97,7 @@ for engagement_record in daily_engagement:
 daily_engagement[0]
 
 
-# In[6]:
+# In[5]:
 
 # Clean up the data types in the submissions table
 for submission in project_submissions:
@@ -111,7 +111,7 @@ project_submissions[0]
 # 
 # ## Investigating the Data
 
-# In[16]:
+# In[6]:
 
 #####################################
 #                 2                 #
@@ -147,7 +147,7 @@ print submission_num_unique_students, "submission_num_unique_students"
 
 # ## Problems in the Data
 
-# In[13]:
+# In[7]:
 
 #####################################
 #                 3                 #
@@ -164,7 +164,7 @@ print daily_engagement[0]
 
 # ## Missing Engagement Records
 
-# In[20]:
+# In[8]:
 
 #####################################
 #                 4                 #
@@ -187,7 +187,7 @@ print
 
 # ## Checking for More Problem Records
 
-# In[23]:
+# In[9]:
 
 #####################################
 #                 5                 #
@@ -214,7 +214,7 @@ print num_unengaged_students_enrolled_at_least_1_day, "enrolled at least one day
 
 # ## Tracking Down the Remaining Problems
 
-# In[39]:
+# In[10]:
 
 # Create a set of the account keys for all Udacity test accounts
 udacity_test_accounts = set()
@@ -224,7 +224,7 @@ for enrollment in enrollments:
 len(udacity_test_accounts)
 
 
-# In[40]:
+# In[11]:
 
 # Given some data with an account_key field, removes any records corresponding to Udacity test accounts
 def remove_udacity_accounts(data):
@@ -235,7 +235,7 @@ def remove_udacity_accounts(data):
     return non_udacity_data
 
 
-# In[41]:
+# In[12]:
 
 # Remove Udacity test accounts from all three tables
 non_udacity_enrollments = remove_udacity_accounts(enrollments)
@@ -249,7 +249,7 @@ print len(non_udacity_submissions)
 
 # ## Refining the Question
 
-# In[44]:
+# In[13]:
 
 #####################################
 #                 6                 #
@@ -272,7 +272,7 @@ print len(paid_students)
 
 # ## Getting Data from First Week
 
-# In[84]:
+# In[14]:
 
 # Takes a student's join date and the date of a specific engagement record,
 # and returns True if that engagement record happened within one week
@@ -282,7 +282,7 @@ def within_one_week(join_date, engagement_date):
     return (time_delta.days < 7) and (time_delta.days >= 0)
 
 
-# In[85]:
+# In[15]:
 
 #####################################
 #                 7                 #
@@ -309,7 +309,7 @@ print len(paid_engagement_in_first_week)*1.0 / len(paid_students_who_engaged_in_
 
 # ## Exploring Student Engagement
 
-# In[86]:
+# In[16]:
 
 from collections import defaultdict
 
@@ -321,7 +321,7 @@ for engagement_record in paid_engagement_in_first_week:
     engagement_by_account[account_key].append(engagement_record)
 
 
-# In[87]:
+# In[17]:
 
 # Create a dictionary with the total minutes each student spent in the classroom during the first week.
 # The keys are account keys, and the values are numbers (total minutes)
@@ -333,7 +333,7 @@ for account_key, engagement_for_student in engagement_by_account.items():
     total_minutes_by_account[account_key] = total_minutes
 
 
-# In[88]:
+# In[18]:
 
 import numpy as np
 
@@ -347,7 +347,7 @@ print 'Maximum:', np.max(total_minutes),  "minutes == ", np.max(total_minutes)/6
 
 # ## Debugging Data Analysis Code
 
-# In[90]:
+# In[19]:
 
 #####################################
 #                 8                 #
@@ -376,7 +376,7 @@ for account_key, total_minutes in total_minutes_by_account.items():
 
 # ## Lessons Completed in First Week
 
-# In[138]:
+# In[20]:
 
 #####################################
 #                 9                 #
@@ -413,7 +413,7 @@ print_stats("Total Number of Lessons Completed in a Student's First Week", total
 
 # ## Number of Visits in First Week
 
-# In[137]:
+# In[21]:
 
 ######################################
 #                 10                 #
@@ -440,7 +440,7 @@ print
 
 # ## Splitting out Passing Students
 
-# In[134]:
+# In[22]:
 
 ######################################
 #                 11                 #
@@ -490,7 +490,7 @@ print 1.0*total_num_engagements_from_non_passing_students/num_failing_students, 
 
 # ## Comparing the Two Student Groups
 
-# In[144]:
+# In[23]:
 
 ######################################
 #                 12                 #
@@ -525,7 +525,7 @@ print
 
 # ## Making Histograms
 
-# In[145]:
+# In[24]:
 
 ######################################
 #                 13                 #
@@ -543,40 +543,40 @@ plt.hist(total_minutes_visited_passing)
 print_stats("Total Minutes Visited in First Week by Students who Passed Project 1", total_minutes_visited_passing)
 
 
-# In[146]:
+# In[25]:
 
 plt.hist(total_minutes_visited_non_passing)
 print_stats("Total Minutes Visited in First Week by Students who Failed Project 1", total_minutes_visited_non_passing)
 
 
-# In[148]:
+# In[26]:
 
 plt.hist(total_lessons_completed_passing)
 print_stats("Total Number of Lessons Completed in First Week by Students who Passed Project 1", total_lessons_completed_passing)
 
 
-# In[149]:
+# In[27]:
 
 plt.hist(total_lessons_completed_non_passing)
 print_stats("Total Number of Lessons Completed in First Week by Students who Failed Project 1", total_lessons_completed_non_passing)
 
 
-# In[150]:
+# In[28]:
 
-plt.hist(num_days_visited_passing)
+plt.hist(num_days_visited_passing, bins=8)
 print_stats("Number of Days Visted in the First Week by Students who Passed Project 1", num_days_visited_passing)
 
 
-# In[151]:
+# In[29]:
 
 
-plt.hist(num_days_visited_non_passing)
+plt.hist(num_days_visited_non_passing, bins=8)
 print_stats("Number of Days Visted in the First Week by Students who Failed Project 1", num_days_visited_non_passing)
 
 
 # ## Improving Plots and Sharing Findings
 
-# In[ ]:
+# In[30]:
 
 ######################################
 #                 14                 #
@@ -586,4 +586,141 @@ print_stats("Number of Days Visted in the First Week by Students who Failed Proj
 ## from earlier. Try importing the seaborn library to make the visualization
 ## look better, adding axis labels and a title, and changing one or more
 ## arguments to the hist() function.
+
+import seaborn as sns
+
+
+# In[31]:
+
+plt.hist(num_days_visited_passing, bins=8)
+plt.title("Number of Days Visted in the First Week by Students who Passed Project 1")
+plt.xlabel("Number of Days Visited, Week 1")
+plt.ylabel("Number of Students")
+
+
+# In[32]:
+
+plt.hist(num_days_visited_non_passing, bins=8)
+plt.title("Number of Days Visted in the First Week by Students who Failed Project 1")
+plt.xlabel("Number of Days Visited, Week 1")
+plt.ylabel("Number of Students")
+
+
+
+# In[33]:
+
+import seaborn as sns
+
+
+# In[34]:
+
+#"Total Minutes Visited in First Week by Students who Passed Project 1"
+base_number_of_bins = 60 #53.7867078825
+
+#scale bins for passing and failing students to be the APPROXIMATELY the same width, 
+#ie account for difference in total number of students in each set
+# rounding to integer caused bins to be smis-align, cumulatively along the x-axis, thus: Abandon Idea!
+passing_scale = 1.0
+failing_scale = 1.0 #num_failing_students*1.0 / num_passing_students
+# print failing_scale
+# print 1.0/failing_scale
+
+num_bins_passing = int(base_number_of_bins*passing_scale)
+num_bins_failing = int(base_number_of_bins*failing_scale)
+
+min_number_minutes = np.min(total_minutes_visited)
+print min_number_minutes
+max_number_minutes = np.max(total_minutes_visited)
+print max_number_minutes
+plt.xticks(range(int(np.min(total_minutes_visited)), int(np.max(total_minutes_visited))+1, 600))
+
+
+plt.hist(total_minutes_visited_passing, num_bins_passing)
+plt.hist(total_minutes_visited_non_passing, num_bins_failing)
+plt.title("Total Minutes Visted in the First Week by Students who Passed/Failed Project 1")
+plt.xlabel("Number of Minutes Visited, Week 1")
+plt.ylabel("Number of Students")
+
+
+
+# In[44]:
+
+#"Total Minutes Visited in First Week by Students who Passed Project 1"
+base_number_of_bins = 60 # hourly bins
+
+min_number_minutes = 0
+max_number_minutes = 1800
+# step = 120 #number of minutes represented by each tick (and thusly each label)
+# plt.xticks(range(int(np.min(total_minutes_visited)), int(np.max(total_minutes_visited))+1, step))
+
+# hide every other label
+# dunno proper syntax for hist labels, basic idea is here though
+#plt.setp(plt.hist.ax.get_xticklabels()[::2], visible=False)
+
+# change scale from minutes to hours
+total_hours_visited_passing     = [mins/60.0 for mins in total_minutes_visited_passing]
+total_hours_visited_non_passing = [mins/60.0 for mins in total_minutes_visited_non_passing]
+
+start_num_hours = int(min_number_minutes/60)
+end_num_hours   = int(max_number_minutes/60)+1
+step1 = 1        #number of hours represented by each tick
+step1 = 1        #number of hours represented by each tick (and thusly each label) -- prevent overlapping labels
+
+# first 10 hours tick each hour, then label/tick even number of hours only (prevent overlapping labels)
+time_range_to_plot = range(start_num_hours, 10, 1) + range(10, end_num_hours, step)
+
+plt.xticks(time_range_to_plot)
+
+plt.hist(total_hours_visited_passing,     base_number_of_bins, range=[start_num_hours, end_num_hours])
+plt.hist(total_hours_visited_non_passing, base_number_of_bins, range=[start_num_hours, end_num_hours])
+plt.title("Total Hours Visted in the First Week by Students who Passed/Failed Project 1")
+plt.xlabel("Number of Hours Visited, Week 1")
+plt.ylabel("Number of Students")
+
+
+
+# In[45]:
+
+num_bins=41
+
+plt.hist(total_lessons_completed_passing, bins=num_bins)
+plt.hist(total_lessons_completed_non_passing, bins=num_bins)
+
+plt.title("Total Number of Lessons Completed in the First Week by Students who Passed/Failed Project 1")
+plt.xlabel("Number of Lessons Completed, Week 1")
+plt.ylabel("Number of Students")
+
+
+# In[51]:
+
+num_bins=41
+lessons_to_plot = [0,15]
+# step size of labels and ticks: print every lesson number in the range I'm plotting
+plt.xticks(range(0, 20, 1))
+
+plt.hist(total_lessons_completed_passing, bins=num_bins, range=lessons_to_plot)
+plt.hist(total_lessons_completed_non_passing, bins=num_bins, range=lessons_to_plot)
+
+plt.title("Total Number of Lessons Completed in the First Week by Students who Passed/Failed Project 1")
+plt.xlabel("Number of Lessons Completed, Week 1")
+plt.ylabel("Number of Students")
+
+
+# In[ ]:
+
+plt.hist(num_days_visited_passing, bins=8)
+plt.title("Number of Days Visted in the First Week by Students who Passed Project 1")
+plt.xlabel("Number of Days Visited, Week 1")
+plt.ylabel("Number of Students")
+
+plt.hist(num_days_visited_non_passing, bins=8)
+plt.title("Number of Days Visted in the First Week by Students who Failed Project 1")
+plt.xlabel("Number of Days Visited, Week 1")
+plt.ylabel("Number of Students")
+
+
+
+# In[ ]:
+
+
 
