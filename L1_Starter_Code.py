@@ -347,7 +347,7 @@ print 'Maximum:', np.max(total_minutes),  "minutes == ", np.max(total_minutes)/6
 
 # ## Debugging Data Analysis Code
 
-# In[83]:
+# In[90]:
 
 #####################################
 #                 8                 #
@@ -356,7 +356,7 @@ print 'Maximum:', np.max(total_minutes),  "minutes == ", np.max(total_minutes)/6
 ## Go through a similar process as before to see if there is a problem.
 ## Locate at least one surprising piece of data, output it, and take a look at it.
 minutes_in_a_week = 7*24*60.0
-print minutes_in_a_week
+print minutes_in_a_week, "minutes in a week"
 for account_key, total_minutes in total_minutes_by_account.items():
     #print engagement_by_account[account_key][0]
     if total_minutes > minutes_in_a_week:
@@ -367,16 +367,16 @@ for account_key, total_minutes in total_minutes_by_account.items():
             print
 
 
-# In[ ]:
 
-We need to discard engagements that preceed the most recent enrollment date (if the student enrolled more than once)
-Modify "within_one_week" function to only include entries that have a engagement date after the join date.
-ie: greater than 0; less than 7 days.
-
+# SH Fixed:
+#  We need to discard engagements that preceed the most recent enrollment date (if the student enrolled more than once)
+#  Modify "within_one_week" function to only include entries that have a engagement date after the join date.
+#  ie: greater than 0; less than 7 days.
+# After re-running the cells, we see reasonable numbers.
 
 # ## Lessons Completed in First Week
 
-# In[ ]:
+# In[99]:
 
 #####################################
 #                 9                 #
@@ -386,10 +386,34 @@ ie: greater than 0; less than 7 days.
 ## the number of lessons completed by each student during the first week. Try creating
 ## one or more functions to re-use the code above.
 
+def add_values_in_field(field):
+    totals = []
+    for account_key, engagements in engagement_by_account.items():
+        total_this_account = 0
+        for engagement in engagements:
+            total_this_account += engagement[field]
+        totals.append(total_this_account)
+    #print totals
+    return totals
+
+def print_stats(title, counts):
+    print title
+    print 'Mean:', np.mean(counts)
+    print 'Standard deviation:', np.std(counts)
+    print 'Minimum:', np.min(counts)
+    print 'Maximum:', np.max(counts)
+    
+total_minutes_visited = add_values_in_field('total_minutes_visited')
+print_stats("Total Minutes Visited in a Student's First Week", total_minutes_visited)
+print
+
+total_lessons_completed = add_values_in_field('lessons_completed')
+print_stats("Total Number of Lessons Completed in a Student's First Week", total_lessons_completed)
+
 
 # ## Number of Visits in First Week
 
-# In[ ]:
+# In[113]:
 
 ######################################
 #                 10                 #
@@ -397,6 +421,21 @@ ie: greater than 0; less than 7 days.
 
 ## Find the mean, standard deviation, minimum, and maximum for the number of
 ## days each student visits the classroom during the first week.
+
+def count_days_visited():
+    totals = []
+    for account_key, engagements in engagement_by_account.items():
+        count = 0
+        for engagement in engagements:
+            if engagement['num_courses_visited'] > 0:
+                count += 1
+        totals.append(count)
+    #print totals
+    return totals
+
+num_days_visited = count_days_visited()
+print_stats("Number of Days Visted by Students in the First Week (func with for loop)", num_days_visited)
+print
 
 
 # ## Splitting out Passing Students

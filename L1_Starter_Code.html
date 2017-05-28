@@ -12547,7 +12547,7 @@ Maximum: 3564.7332645 minutes ==  59.412221075 hours ==  2.47550921146 days
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -12557,7 +12557,7 @@ Maximum: 3564.7332645 minutes ==  59.412221075 hours ==  2.47550921146 days
 <span class="c1">## Go through a similar process as before to see if there is a problem.</span>
 <span class="c1">## Locate at least one surprising piece of data, output it, and take a look at it.</span>
 <span class="n">minutes_in_a_week</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mf">60.0</span>
-<span class="k">print</span> <span class="n">minutes_in_a_week</span>
+<span class="k">print</span> <span class="n">minutes_in_a_week</span><span class="p">,</span> <span class="s2">&quot;minutes in a week&quot;</span>
 <span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">total_minutes</span> <span class="ow">in</span> <span class="n">total_minutes_by_account</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="c1">#print engagement_by_account[account_key][0]</span>
     <span class="k">if</span> <span class="n">total_minutes</span> <span class="o">&gt;</span> <span class="n">minutes_in_a_week</span><span class="p">:</span>
@@ -12579,448 +12579,7 @@ Maximum: 3564.7332645 minutes ==  59.412221075 hours ==  2.47550921146 days
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>10080.0
-1.04842270509 weeks
--103 days
-engaged; 2015-01-07 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 50.9938951667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 7, 0, 0)}
-
--102 days
-engaged; 2015-01-08 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 5, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 688.3034385, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 8, 0, 0)}
-
--101 days
-engaged; 2015-01-09 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 427.691757667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 9, 0, 0)}
-
--100 days
-engaged; 2015-01-10 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 3, u&#39;total_minutes_visited&#39;: 165.6270925, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 10, 0, 0)}
-
--99 days
-engaged; 2015-01-11 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 11, 0, 0)}
-
--98 days
-engaged; 2015-01-12 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 199.746703834, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 12, 0, 0)}
-
--97 days
-engaged; 2015-01-13 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 522.626804333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 13, 0, 0)}
-
--96 days
-engaged; 2015-01-14 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 19.3757686667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 14, 0, 0)}
-
--95 days
-engaged; 2015-01-15 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 159.846594, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 15, 0, 0)}
-
--94 days
-engaged; 2015-01-16 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 188.953028166, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 16, 0, 0)}
-
--93 days
-engaged; 2015-01-17 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 3, u&#39;total_minutes_visited&#39;: 150.338208833, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 17, 0, 0)}
-
--92 days
-engaged; 2015-01-18 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 46.2042118333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 18, 0, 0)}
-
--91 days
-engaged; 2015-01-19 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 19, 0, 0)}
-
--90 days
-engaged; 2015-01-20 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 20, 0, 0)}
-
--89 days
-engaged; 2015-01-21 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 21, 0, 0)}
-
--88 days
-engaged; 2015-01-22 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 31.7297723333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 22, 0, 0)}
-
--87 days
-engaged; 2015-01-23 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 206.586538333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 23, 0, 0)}
-
--86 days
-engaged; 2015-01-24 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 24, 0, 0)}
-
--85 days
-engaged; 2015-01-25 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 25, 0, 0)}
-
--84 days
-engaged; 2015-01-26 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 129.350111833, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 26, 0, 0)}
-
--83 days
-engaged; 2015-01-27 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 73.5691376667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 27, 0, 0)}
-
--82 days
-engaged; 2015-01-28 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 28, 0, 0)}
-
--81 days
-engaged; 2015-01-29 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 271.0895865, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 29, 0, 0)}
-
--80 days
-engaged; 2015-01-30 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 432.252650333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 30, 0, 0)}
-
--79 days
-engaged; 2015-01-31 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 196.13898, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 1, 31, 0, 0)}
-
--78 days
-engaged; 2015-02-01 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 68.9915653333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 1, 0, 0)}
-
--77 days
-engaged; 2015-02-02 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 86.3277713333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 2, 0, 0)}
-
--76 days
-engaged; 2015-02-03 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 3, 0, 0)}
-
--75 days
-engaged; 2015-02-04 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 4, 0, 0)}
-
--74 days
-engaged; 2015-02-05 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 153.230525, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 5, 0, 0)}
-
--73 days
-engaged; 2015-02-06 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 6, 0, 0)}
-
--72 days
-engaged; 2015-02-07 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 7, 0, 0)}
-
--71 days
-engaged; 2015-02-08 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 8, 0, 0)}
-
--70 days
-engaged; 2015-02-09 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 16.687455, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 9, 0, 0)}
-
--69 days
-engaged; 2015-02-10 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 133.047518833, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 10, 0, 0)}
-
--68 days
-engaged; 2015-02-11 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 60.2176756667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 11, 0, 0)}
-
--67 days
-engaged; 2015-02-12 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 3, u&#39;total_minutes_visited&#39;: 160.438302667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 12, 0, 0)}
-
--66 days
-engaged; 2015-02-13 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 4, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 506.220547, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 13, 0, 0)}
-
--65 days
-engaged; 2015-02-14 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 105.095858167, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 14, 0, 0)}
-
--64 days
-engaged; 2015-02-15 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 15, 0, 0)}
-
--63 days
-engaged; 2015-02-16 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 16, 0, 0)}
-
--62 days
-engaged; 2015-02-17 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 2.851689, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 17, 0, 0)}
-
--61 days
-engaged; 2015-02-18 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 10.9540768333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 18, 0, 0)}
-
--60 days
-engaged; 2015-02-19 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 3, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 474.2906025, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 19, 0, 0)}
-
--59 days
-engaged; 2015-02-20 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 5, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 820.879483167, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 20, 0, 0)}
-
--58 days
-engaged; 2015-02-21 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 2, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 189.447189334, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 21, 0, 0)}
-
--57 days
-engaged; 2015-02-22 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 97.7356985, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 22, 0, 0)}
-
--56 days
-engaged; 2015-02-23 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 16.399642, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 23, 0, 0)}
-
--55 days
-engaged; 2015-02-24 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 24, 0, 0)}
-
--54 days
-engaged; 2015-02-25 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 25, 0, 0)}
-
--53 days
-engaged; 2015-02-26 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 26, 0, 0)}
-
--52 days
-engaged; 2015-02-27 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 27, 0, 0)}
-
--51 days
-engaged; 2015-02-28 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 2, 28, 0, 0)}
-
--50 days
-engaged; 2015-03-01 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 1, 0, 0)}
-
--49 days
-engaged; 2015-03-02 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 2, 0, 0)}
-
--48 days
-engaged; 2015-03-03 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 3, 0, 0)}
-
--47 days
-engaged; 2015-03-04 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 2.0494365, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 4, 0, 0)}
-
--46 days
-engaged; 2015-03-05 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 5, 0, 0)}
-
--45 days
-engaged; 2015-03-06 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 2, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 431.799976167, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 6, 0, 0)}
-
--44 days
-engaged; 2015-03-07 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 119.514411833, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 7, 0, 0)}
-
--43 days
-engaged; 2015-03-08 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 164.2608825, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 8, 0, 0)}
-
--42 days
-engaged; 2015-03-09 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 179.749760666, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 9, 0, 0)}
-
--41 days
-engaged; 2015-03-10 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 10, 0, 0)}
-
--40 days
-engaged; 2015-03-11 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 11, 0, 0)}
-
--39 days
-engaged; 2015-03-12 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 10.787165, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 12, 0, 0)}
-
--38 days
-engaged; 2015-03-13 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 53.0065191667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 13, 0, 0)}
-
--37 days
-engaged; 2015-03-14 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 203.048973667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 14, 0, 0)}
-
--36 days
-engaged; 2015-03-15 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 51.2993831667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 15, 0, 0)}
-
--35 days
-engaged; 2015-03-16 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 16, 0, 0)}
-
--34 days
-engaged; 2015-03-17 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 148.2304025, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 17, 0, 0)}
-
--33 days
-engaged; 2015-03-18 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 27.5826056667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 18, 0, 0)}
-
--32 days
-engaged; 2015-03-19 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 19, 0, 0)}
-
--31 days
-engaged; 2015-03-20 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 20, 0, 0)}
-
--30 days
-engaged; 2015-03-21 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 14.4492643333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 21, 0, 0)}
-
--29 days
-engaged; 2015-03-22 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 159.175812667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 22, 0, 0)}
-
--28 days
-engaged; 2015-03-23 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 23.0641448333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 23, 0, 0)}
-
--27 days
-engaged; 2015-03-24 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 3, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 327.687187333, u&#39;projects_completed&#39;: 1, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 24, 0, 0)}
-
--26 days
-engaged; 2015-03-25 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 5, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 210.324669, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 25, 0, 0)}
-
--25 days
-engaged; 2015-03-26 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 114.421496, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 26, 0, 0)}
-
--24 days
-engaged; 2015-03-27 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 85.2018686667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 27, 0, 0)}
-
--23 days
-engaged; 2015-03-28 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 9.53501516667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 28, 0, 0)}
-
--22 days
-engaged; 2015-03-29 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 29, 0, 0)}
-
--21 days
-engaged; 2015-03-30 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 30, 0, 0)}
-
--20 days
-engaged; 2015-03-31 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 3, 31, 0, 0)}
-
--19 days
-engaged; 2015-04-01 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 3, u&#39;total_minutes_visited&#39;: 147.569145833, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 1, 0, 0)}
-
--18 days
-engaged; 2015-04-02 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 3, u&#39;total_minutes_visited&#39;: 77.2467501667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 2, 0, 0)}
-
--17 days
-engaged; 2015-04-03 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 3, u&#39;total_minutes_visited&#39;: 84.8263243333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 3, 0, 0)}
-
--16 days
-engaged; 2015-04-04 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 4, 0, 0)}
-
--15 days
-engaged; 2015-04-05 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 5, 0, 0)}
-
--14 days
-engaged; 2015-04-06 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 32.9969003333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 6, 0, 0)}
-
--13 days
-engaged; 2015-04-07 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 173.764699333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 7, 0, 0)}
-
--12 days
-engaged; 2015-04-08 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 8, 0, 0)}
-
--11 days
-engaged; 2015-04-09 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 85.6887951667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 9, 0, 0)}
-
--10 days
-engaged; 2015-04-10 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 72.4837255, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 10, 0, 0)}
-
--9 days
-engaged; 2015-04-11 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 11, 0, 0)}
-
--8 days
-engaged; 2015-04-12 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 12, 0, 0)}
-
--7 days
-engaged; 2015-04-13 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 13, 0, 0)}
-
--6 days
-engaged; 2015-04-14 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 36.9211676667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 14, 0, 0)}
-
--5 days
-engaged; 2015-04-15 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 1, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 179.353473333, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 15, 0, 0)}
-
--4 days
-engaged; 2015-04-16 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 274.209734167, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 16, 0, 0)}
-
--3 days
-engaged; 2015-04-17 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 40.340405, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 17, 0, 0)}
-
--2 days
-engaged; 2015-04-18 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 18, 0, 0)}
-
--1 days
-engaged; 2015-04-19 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 19, 0, 0)}
-
-0 days
-engaged; 2015-04-20 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 25.9137858334, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 20, 0, 0)}
-
-1 days
-engaged; 2015-04-21 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 3.40682316667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 21, 0, 0)}
-
-2 days
-engaged; 2015-04-22 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 2, u&#39;total_minutes_visited&#39;: 99.1186611667, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 22, 0, 0)}
-
-3 days
-engaged; 2015-04-23 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 1, u&#39;total_minutes_visited&#39;: 35.8316206667, u&#39;projects_completed&#39;: 2, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 23, 0, 0)}
-
-4 days
-engaged; 2015-04-24 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 24, 0, 0)}
-
-5 days
-engaged; 2015-04-25 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 25, 0, 0)}
-
-6 days
-engaged; 2015-04-26 00:00:00 joined: 2015-04-20 00:00:00
-{u&#39;lessons_completed&#39;: 0, u&#39;num_courses_visited&#39;: 0, u&#39;total_minutes_visited&#39;: 0.0, u&#39;projects_completed&#39;: 0, &#39;account_key&#39;: u&#39;108&#39;, u&#39;utc_date&#39;: datetime.datetime(2015, 4, 26, 0, 0)}
-
+<pre>10080.0 minutes in a week
 </pre>
 </div>
 </div>
@@ -13029,20 +12588,19 @@ engaged; 2015-04-26 00:00:00 joined: 2015-04-20 00:00:00
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">We</span> <span class="n">need</span> <span class="n">to</span> <span class="n">discard</span> <span class="n">engagements</span> <span class="n">that</span> <span class="n">preceed</span> <span class="n">the</span> <span class="n">most</span> <span class="n">recent</span> <span class="n">enrollment</span> <span class="n">date</span> <span class="p">(</span><span class="k">if</span> <span class="n">the</span> <span class="n">student</span> <span class="n">enrolled</span> <span class="n">more</span> <span class="n">than</span> <span class="n">once</span><span class="p">)</span>
-<span class="n">Modify</span> <span class="s2">&quot;within_one_week&quot;</span> <span class="n">function</span> <span class="n">to</span> <span class="n">only</span> <span class="n">include</span> <span class="n">entries</span> <span class="n">that</span> <span class="n">have</span> <span class="n">a</span> <span class="n">engagement</span> <span class="n">date</span> <span class="n">after</span> <span class="n">the</span> <span class="n">join</span> <span class="n">date</span><span class="o">.</span>
-<span class="n">ie</span><span class="p">:</span> <span class="n">greater</span> <span class="n">than</span> <span class="mi">0</span><span class="p">;</span> <span class="n">less</span> <span class="n">than</span> <span class="mi">7</span> <span class="n">days</span><span class="o">.</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SH Fixed:
+ We need to discard engagements that preceed the most recent enrollment date (if the student enrolled more than once)
+ Modify "within_one_week" function to only include entries that have a engagement date after the join date.
+ ie: greater than 0; less than 7 days.
+After re-running the cells, we see reasonable numbers.</p>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13055,7 +12613,7 @@ engaged; 2015-04-26 00:00:00 joined: 2015-04-20 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#####################################</span>
@@ -13065,9 +12623,57 @@ engaged; 2015-04-26 00:00:00 joined: 2015-04-20 00:00:00
 <span class="c1">## Adapt the code above to find the mean, standard deviation, minimum, and maximum for</span>
 <span class="c1">## the number of lessons completed by each student during the first week. Try creating</span>
 <span class="c1">## one or more functions to re-use the code above.</span>
+
+<span class="k">def</span> <span class="nf">add_values_in_field</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="n">totals</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">engagements</span> <span class="ow">in</span> <span class="n">engagement_by_account</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">total_this_account</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">engagement</span> <span class="ow">in</span> <span class="n">engagements</span><span class="p">:</span>
+            <span class="n">total_this_account</span> <span class="o">+=</span> <span class="n">engagement</span><span class="p">[</span><span class="n">field</span><span class="p">]</span>
+        <span class="n">totals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total_this_account</span><span class="p">)</span>
+    <span class="c1">#print totals</span>
+    <span class="k">return</span> <span class="n">totals</span>
+
+<span class="k">def</span> <span class="nf">print_stats</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">title</span>
+    <span class="k">print</span> <span class="s1">&#39;Mean:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;Standard deviation:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;Minimum:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s1">&#39;Maximum:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+    
+<span class="n">total_minutes_visited</span> <span class="o">=</span> <span class="n">add_values_in_field</span><span class="p">(</span><span class="s1">&#39;total_minutes_visited&#39;</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Total Minutes Visited in a Student&#39;s First Week&quot;</span><span class="p">,</span> <span class="n">total_minutes_visited</span><span class="p">)</span>
+<span class="k">print</span>
+
+<span class="n">total_lessons_completed</span> <span class="o">=</span> <span class="n">add_values_in_field</span><span class="p">(</span><span class="s1">&#39;lessons_completed&#39;</span><span class="p">)</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Total Number of Lessons Completed in a Student&#39;s First Week&quot;</span><span class="p">,</span> <span class="n">total_lessons_completed</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total Minutes Visited in a Student&#39;s First Week
+Mean: 306.708326753
+Standard deviation: 412.996933409
+Minimum: 0.0
+Maximum: 3564.7332645
+
+Total Number of Lessons Completed in a Student&#39;s First Week
+Mean: 1.63618090452
+Standard deviation: 3.00256129983
+Minimum: 0
+Maximum: 36
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13083,7 +12689,7 @@ engaged; 2015-04-26 00:00:00 joined: 2015-04-20 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[113]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">######################################</span>
@@ -13092,9 +12698,43 @@ engaged; 2015-04-26 00:00:00 joined: 2015-04-20 00:00:00
 
 <span class="c1">## Find the mean, standard deviation, minimum, and maximum for the number of</span>
 <span class="c1">## days each student visits the classroom during the first week.</span>
+
+<span class="k">def</span> <span class="nf">count_days_visited</span><span class="p">():</span>
+    <span class="n">totals</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">engagements</span> <span class="ow">in</span> <span class="n">engagement_by_account</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">engagement</span> <span class="ow">in</span> <span class="n">engagements</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">engagement</span><span class="p">[</span><span class="s1">&#39;num_courses_visited&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">totals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="c1">#print totals</span>
+    <span class="k">return</span> <span class="n">totals</span>
+
+<span class="n">num_days_visited</span> <span class="o">=</span> <span class="n">count_days_visited</span><span class="p">()</span>
+<span class="n">print_stats</span><span class="p">(</span><span class="s2">&quot;Number of Days Visted by Students in the First Week (func with for loop)&quot;</span><span class="p">,</span> <span class="n">num_days_visited</span><span class="p">)</span>
+<span class="k">print</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of Days Visted by Students in the First Week (func with for loop)
+Mean: 2.86733668342
+Standard deviation: 2.25519800292
+Minimum: 0
+Maximum: 7
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
