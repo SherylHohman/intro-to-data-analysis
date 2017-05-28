@@ -12689,7 +12689,7 @@ Maximum: 36
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">######################################</span>
@@ -12750,7 +12750,7 @@ Maximum: 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">######################################</span>
@@ -12763,12 +12763,62 @@ Maximum: 7
 <span class="c1">## who do not.</span>
 
 <span class="n">subway_project_lesson_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;746169184&#39;</span><span class="p">,</span> <span class="s1">&#39;3176718735&#39;</span><span class="p">]</span>
+<span class="n">passing_values</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PASSED&#39;</span><span class="p">,</span> <span class="s1">&#39;DISTINCTION&#39;</span><span class="p">]</span>
 
-<span class="n">passing_engagement</span> <span class="o">=</span>
-<span class="n">non_passing_engagement</span> <span class="o">=</span>
+<span class="k">def</span> <span class="nf">get_list_of_students_who_passed_project1</span><span class="p">():</span>
+    <span class="n">passing_students</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">project_sub</span> <span class="ow">in</span> <span class="n">non_udacity_submissions</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">project_sub</span><span class="p">[</span><span class="s1">&#39;lesson_key&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">subway_project_lesson_keys</span><span class="p">)</span> <span class="ow">and</span> \
+           <span class="p">(</span><span class="n">project_sub</span><span class="p">[</span><span class="s1">&#39;assigned_rating&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">passing_values</span><span class="p">)</span> <span class="ow">and</span> \
+           <span class="p">(</span><span class="n">project_sub</span><span class="p">[</span><span class="s1">&#39;account_key&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">paid_students</span><span class="p">):</span>
+            <span class="n">passing_students</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">project_sub</span><span class="p">[</span><span class="s1">&#39;account_key&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">passing_students</span>
+        
+
+<span class="n">passing_engagement</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">non_passing_engagement</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">total_num_engagements_from_passing_students</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total_num_engagements_from_non_passing_students</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">passing_students</span> <span class="o">=</span> <span class="n">get_list_of_students_who_passed_project1</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">account_key</span><span class="p">,</span> <span class="n">engagements</span> <span class="ow">in</span> <span class="n">engagement_by_account</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+    <span class="k">if</span> <span class="n">account_key</span> <span class="ow">in</span> <span class="n">passing_students</span><span class="p">:</span>
+        <span class="n">passing_engagement</span><span class="p">[</span><span class="n">account_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">engagements</span>
+        <span class="n">total_num_engagements_from_passing_students</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">engagements</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">non_passing_engagement</span><span class="p">[</span><span class="n">account_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">engagements</span>
+        <span class="n">total_num_engagements_from_non_passing_students</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">engagements</span><span class="p">)</span>
+
+<span class="n">num_passing_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">passing_engagement</span><span class="p">)</span>
+<span class="n">num_failing_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_passing_engagement</span><span class="p">)</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">passing_engagement</span><span class="p">),</span> <span class="s2">&quot;students passed,&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_passing_engagement</span><span class="p">),</span> <span class="s2">&quot;failed,&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">passing_engagement</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">non_passing_engagement</span><span class="p">),</span> <span class="s2">&quot;total students&quot;</span>
+<span class="k">print</span> <span class="n">total_num_engagements_from_passing_students</span><span class="p">,</span> <span class="s2">&quot;engagements from passing students&quot;</span>  
+<span class="k">print</span> <span class="n">total_num_engagements_from_non_passing_students</span><span class="p">,</span> <span class="s2">&quot;engagements from failing students&quot;</span> 
+<span class="k">print</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">total_num_engagements_from_passing_students</span><span class="o">/</span><span class="n">num_passing_students</span><span class="p">,</span> <span class="s2">&quot;ave num engagements per passing student&quot;</span>
+<span class="k">print</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">total_num_engagements_from_non_passing_students</span><span class="o">/</span><span class="n">num_failing_students</span><span class="p">,</span> <span class="s2">&quot;ave num engagements per failing student&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>647 students passed, 348 failed, 995 total students
+4527 engagements from passing students
+2392 engagements from failing students
+6.99690880989 ave num engagements per passing student
+6.87356321839 ave num engagements per failing student
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 

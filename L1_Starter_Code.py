@@ -413,7 +413,7 @@ print_stats("Total Number of Lessons Completed in a Student's First Week", total
 
 # ## Number of Visits in First Week
 
-# In[113]:
+# In[136]:
 
 ######################################
 #                 10                 #
@@ -440,7 +440,7 @@ print
 
 # ## Splitting out Passing Students
 
-# In[ ]:
+# In[134]:
 
 ######################################
 #                 11                 #
@@ -452,9 +452,40 @@ print
 ## who do not.
 
 subway_project_lesson_keys = ['746169184', '3176718735']
+passing_values = ['PASSED', 'DISTINCTION']
 
-passing_engagement =
-non_passing_engagement =
+def get_list_of_students_who_passed_project1():
+    passing_students = set()
+    for project_sub in non_udacity_submissions:
+        if (project_sub['lesson_key'] in subway_project_lesson_keys) and            (project_sub['assigned_rating'] in passing_values) and            (project_sub['account_key'] in paid_students):
+            passing_students.add(project_sub['account_key'])
+    return passing_students
+        
+
+passing_engagement = {}
+non_passing_engagement = {}
+total_num_engagements_from_passing_students = 0
+total_num_engagements_from_non_passing_students = 0
+
+passing_students = get_list_of_students_who_passed_project1()
+
+for account_key, engagements in engagement_by_account.items():
+
+    if account_key in passing_students:
+        passing_engagement[account_key] = engagements
+        total_num_engagements_from_passing_students += len(engagements)
+    else:
+        non_passing_engagement[account_key] = engagements
+        total_num_engagements_from_non_passing_students += len(engagements)
+
+num_passing_students = len(passing_engagement)
+num_failing_students = len(non_passing_engagement)
+print len(passing_engagement), "students passed,", len(non_passing_engagement), "failed,", len(passing_engagement) + len(non_passing_engagement), "total students"
+print total_num_engagements_from_passing_students, "engagements from passing students"  
+print total_num_engagements_from_non_passing_students, "engagements from failing students" 
+print 1.0*total_num_engagements_from_passing_students/num_passing_students, "ave num engagements per passing student"
+print 1.0*total_num_engagements_from_non_passing_students/num_failing_students, "ave num engagements per failing student"
+
 
 
 # ## Comparing the Two Student Groups
