@@ -1,3 +1,4 @@
-# data files that must be downloaded separately
-#   too large for github
-*.csv
+# data files: too large for github
+# *.csv
+# actually, only 1 file is too big, and I don't use it anyway !
+daily_engagement_full.csv
